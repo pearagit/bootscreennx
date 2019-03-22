@@ -75,7 +75,7 @@ $("#settings input, #settings select").on('change', function() {
 	}
 
 	// Format the copyright line based on the users selection or custom input
-	copyrightLine = 'Copyright(C) 2018, ';
+	copyrightLine = 'Copyright(C) 2019, ';
 	if(!useCustomCfw){
 		switch(cfwType) {
 			case 'atmosphere':

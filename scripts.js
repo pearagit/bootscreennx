@@ -48,6 +48,8 @@ var write = function(x, y, text, color = 'gray') {
 $("#settings input, #settings select").on('change', function() {
 	// The Switch firmware version
 	var firmwareVersion = $('select[name=firmware] option:selected', "#settings").val();
+	// The size of the internal eMMC
+	var emmcSize = $('select[name=emmc] option:selected', "#settings").val();
 	// The size of the SD card
 	var sdSize = $('select[name=sd] option:selected', "#settings").val();
 	// The type of CFW, given it has not been customised by the user
@@ -185,7 +187,7 @@ $("#settings input, #settings select").on('change', function() {
 	write(FONT_X_PADDING, FONT_HEIGHT * 7, 'Main Processor		: Nvidia Tegra X1 SoC');
 	write(FONT_X_PADDING, FONT_HEIGHT * 8, 'Memory Testing		: 4194000K OK');
 
-	write(FONT_X_PADDING, FONT_HEIGHT * 9, 'Primary Master		: 32G Internal Storage');
+	write(FONT_X_PADDING, FONT_HEIGHT * 9, 'Primary Master		: '+ emmcSize +' Internal Storage');
 	write(FONT_X_PADDING, FONT_HEIGHT *10, 'Primary Slave 		: '+ sdSize +' SD Card');
 
 });

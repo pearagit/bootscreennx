@@ -63,27 +63,11 @@ function redrawCanvas(){
             drawCanvasCtx.fillStyle = "black";
             drawCanvasCtx.fillRect(1040, 36, 50, 60);
             break;
-		case 'energyStarAtmosphere':
-		// 	mainCanvas.drawImage({
-		// 		source: 'images/symbols.png',
-		// 		x: 966, y: 16,
-		// 		sWidth: 133,
-		// 		sHeight: 84,
-		// 		width: 266,
-		// 		height: 168,
-		// 		sx: 0, sy: 84
-		// 	});
+        case 'energyStarAtmosphere':
+            drawCanvasCtx.drawImage(symbolSheet, 0, 84, 133, 84, 966, 16, 266, 168);
 			break;
-		case 'atmosphere':
-		// 	mainCanvas.drawImage({
-		// 		source: 'images/symbols.png',
-		// 		x: 1100, y: 16,
-		// 		sWidth: 101,
-		// 		sHeight: 84,
-		// 		width: 151,
-		// 		height: 134,
-		// 		sx: 30, sy: 168
-		// 	});
+        case 'atmosphere':
+            drawCanvasCtx.drawImage(symbolSheet, 30, 168, 101, 84, 1100, 16, 151, 134);
 			break;
 	}
 

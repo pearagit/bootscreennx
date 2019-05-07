@@ -53,7 +53,7 @@ function redrawCanvas(){
     // The size of the external SD
     var sdSize = $('select[name=sd] option:selected', "#settings");
     // Copyright information, at the bottom of the screen
-    var copyrightLine = '';
+    var copyrightLine = "Copyright (C) 2019, ";
     // The chosen top-right logo to display
     var sideLogo = $('select[name=logoOptions] option:selected', "#settings");
     // Whether or not to display the bootloader message at the bottom of the screen
@@ -73,8 +73,36 @@ function redrawCanvas(){
     // Changes selection box in input for custom bootloader
 	if ($('select[name=boottool] option:selected', "#settings").val() == 'custom') {
 		$('input[name=boottool]', "#settings").show();
-		$('select[name=boottool]', "#settings").parent().hide();
+		$('select[name=boottool]', "#settings").hide();
 		useCustomBootInput = true;
+    }
+    
+    // Changes selection box in input for custom CFW
+	if ($('select[name=type] option:selected', "#settings").val() == 'custom') {
+		$('input[name=type]', "#settings").show();
+		$('input[name=typecopyright]', "#settings").show();
+		$('select[name=type]', "#settings").hide();
+		useCustomCfw = true;
+    }
+    
+    // Set the copyright information
+    if(!useCustomCfw){
+		switch(cfwType.val()) {
+			case 'atmosphere':
+				copyrightLine += 'Team ReSwitched';
+				break;
+			case 'reinx':
+				copyrightLine += 'Rei';
+				break;
+			case 'rajnx':
+				copyrightLine += 'rajkosto';
+				break;
+			case 'sxos':
+				copyrightLine += 'Team Xecuter';
+				break;
+		}
+	}else{
+		copyrightLine += $('input[name=typecopyright]', "#settings").val();
 	}
 
     // Reset the canvas and draw the black background
@@ -82,10 +110,10 @@ function redrawCanvas(){
     drawCanvasCtx.fillStyle = "black";
     drawCanvasCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-    /* Draw the 'little blue man' */
+    // Draw the 'little blue man'
     drawCanvasCtx.drawImage(symbolSheet, 40, 10, 21, 29, 8, 16, 42, 58);
 
-    /* Draw logos at the top right of the screen */
+    // Draw logos at the top right of the screen
     switch (sideLogo.val()) {
         case 'energyStar':
             drawCanvasCtx.drawImage(symbolSheet, 0, 0, 133, 84, 966, 16, 266, 168);
@@ -105,17 +133,21 @@ function redrawCanvas(){
 	if (!useCustomBootInput)
         $('input[name=boottool]', "#settings").val($('select[name=boottool] option:selected', "#settings").text());
 
+    // Set the custom cfw input box to the users last selection
+	if (!useCustomCfw)
+        $('input[name=type]', "#settings").val($('select[name=type] option:selected', "#settings").text());
+
     // Draw any text the user requests
-    drawText(cfwType.text(), 64, 16);
-    drawText("Copyright (C) 2019, Team ReSwitched", 64, 48);
+    drawText($('input[name=type]', "#settings").val(), 64, 16);
+    drawText(copyrightLine, 64, 48);
 
     drawText("Nintendo Switch (ver " + firmwareVersion.val() + ")", 64, 160);
     drawText("Main Processor    :   Nvidia Tegra X1 SoC", 64, 224);
     drawText("Memory Test       :   65920K OK", 64, 256);
 
     drawText("Plug and Play BIOS Extension, v1.0A", 64, 320);
-    drawText("Detecting Primary Master      ...", 96, 352);
-    drawText("Detecting Primary Slave       ...", 96, 384);
+    drawText("Detecting Primary Master      ... " + emmcSize.val() + " Internal Storage", 96, 352);
+    drawText("Detecting Primary Slave       ... " + sdSize.val() + " SD Card", 96, 384);
     drawText("Detecting Secondary Master    ... None", 96, 416);
     drawText("Detecting Secondary Slave     ... None", 96, 448);
 

@@ -45,21 +45,51 @@ function redrawCanvas(){
     var sdSize = $('select[name=sd] option:selected', "#settings");
     // Copyright information, at the bottom of the screen
     var copyrightLine = '';
+    // The chosen top-right logo to display
+    var sideLogo = $('select[name=logoOptions] option:selected', "#settings");
 
     // Reset the canvas and draw the black background
     drawCanvasCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     drawCanvasCtx.fillStyle = "black";
     drawCanvasCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
+    // Draw the 'little blue man'
+    drawCanvasCtx.drawImage(symbolSheet, 40, 10, 21, 29, 8, 16, 42, 58);
 
+    switch (sideLogo.val()) {
+        case 'energyStar':
+            drawCanvasCtx.drawImage(symbolSheet, 0, 0, 133, 84, 966, 16, 266, 168);
+            // Cover the 'little blue man' present in the energy star logo
+            drawCanvasCtx.fillStyle = "black";
+            drawCanvasCtx.fillRect(1040, 36, 50, 60);
+            break;
+		case 'energyStarAtmosphere':
+		// 	mainCanvas.drawImage({
+		// 		source: 'images/symbols.png',
+		// 		x: 966, y: 16,
+		// 		sWidth: 133,
+		// 		sHeight: 84,
+		// 		width: 266,
+		// 		height: 168,
+		// 		sx: 0, sy: 84
+		// 	});
+			break;
+		case 'atmosphere':
+		// 	mainCanvas.drawImage({
+		// 		source: 'images/symbols.png',
+		// 		x: 1100, y: 16,
+		// 		sWidth: 101,
+		// 		sHeight: 84,
+		// 		width: 151,
+		// 		height: 134,
+		// 		sx: 30, sy: 168
+		// 	});
+			break;
+	}
 
     // Draw any text the user requests
     drawText(cfwType.text(), 64, 16);
     drawText("Copyright (C) 2019, Team ReSwitched", 64, 48);
-
-    // Draw the 'little blue man'
-    drawCanvasCtx.drawImage(symbolSheet, 40, 10, 21, 29, 8, 16, 42, 58);
-    // drawCanvasCtx.drawImage(blueman, 20, 20);
 }
 
 // Every time an input is changed, modify the preview

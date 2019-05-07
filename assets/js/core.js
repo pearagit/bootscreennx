@@ -7,6 +7,13 @@ const CANVAS_WIDTH = 1280;
 // Height of the Nintendo Switch screen, and by extension, the canvas
 const CANVAS_HEIGHT = 720;
 
+// Load the symbols spritesheet, containing the energy logos
+var symbolSheet = new Image();
+symbolSheet.src = "/assets/img/symbols.png";
+
+// Disable image smoothing, results in a blurry output otherwise
+drawCanvasCtx.imageSmoothingEnabled = false;
+
 /**
  * Draws a string of text, with accurate character spacing
  * @param {string} text The text to write to the screen
@@ -20,7 +27,7 @@ function drawText(text, x, y, color = 'gray'){
     drawCanvasCtx.textBaseline = "top"; 
 
     for (var i = 0; i < text.length; i++) {
-        drawCanvasCtx.fillText(text.charAt(i), x + (i * 16), y - 4);
+        drawCanvasCtx.fillText(text.charAt(i), x + (i * 16), y);
     }
 }
 
@@ -44,9 +51,15 @@ function redrawCanvas(){
     drawCanvasCtx.fillStyle = "black";
     drawCanvasCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
+
+
     // Draw any text the user requests
     drawText(cfwType.text(), 64, 16);
     drawText("Copyright (C) 2019, Team ReSwitched", 64, 48);
+
+    // Draw the 'little blue man'
+    drawCanvasCtx.drawImage(symbolSheet, 40, 10, 21, 29, 8, 16, 42, 58);
+    // drawCanvasCtx.drawImage(blueman, 20, 20);
 }
 
 // Every time an input is changed, modify the preview

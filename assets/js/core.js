@@ -26,8 +26,17 @@ function drawText(text, x, y, color = 'gray'){
     drawCanvasCtx.fillStyle = color;
     drawCanvasCtx.textBaseline = "top"; 
 
+    var backspace = 0;
     for (var i = 0; i < text.length; i++) {
-        drawCanvasCtx.fillText(text.charAt(i), x + (i * 16), y);
+        if (text.charAt(i) == '_'){
+            if (drawCanvasCtx.fillStyle == "#ffffff")
+                drawCanvasCtx.fillStyle = color
+            else
+                drawCanvasCtx.fillStyle = "white"
+            backspace++;
+            continue;
+        }
+        drawCanvasCtx.fillText(text.charAt(i), x + (i * 16) - (backspace * 16), y);
     }
 }
 
@@ -47,15 +56,36 @@ function redrawCanvas(){
     var copyrightLine = '';
     // The chosen top-right logo to display
     var sideLogo = $('select[name=logoOptions] option:selected', "#settings");
+    // Whether or not to display the bootloader message at the bottom of the screen
+	var shouldDrawCustomBootString = $('input[name=hold]', "#settings").is(':checked');
+	// The key to be held when entering the bootloader
+	var bootloaderKey = $('select[name=onboot] option:selected', "#settings");
+	// The bootloader to enter when the user presses the boot key
+    var bootloader = $('input[name=boottool]', "#settings");
+    // Time at which to hold the boot key
+    var bootTime = $('select[name=firstTime] option:selected');
+
+    // Whether to draw the custom bootloader given by the user
+	var useCustomBootInput = false;
+	// Whether to draw the custom CFW, and Copyright info, given by the user
+	var useCustomCfw = false;
+
+    // Changes selection box in input for custom bootloader
+	if ($('select[name=boottool] option:selected', "#settings").val() == 'custom') {
+		$('input[name=boottool]', "#settings").show();
+		$('select[name=boottool]', "#settings").parent().hide();
+		useCustomBootInput = true;
+	}
 
     // Reset the canvas and draw the black background
     drawCanvasCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     drawCanvasCtx.fillStyle = "black";
     drawCanvasCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-    // Draw the 'little blue man'
+    /* Draw the 'little blue man' */
     drawCanvasCtx.drawImage(symbolSheet, 40, 10, 21, 29, 8, 16, 42, 58);
 
+    /* Draw logos at the top right of the screen */
     switch (sideLogo.val()) {
         case 'energyStar':
             drawCanvasCtx.drawImage(symbolSheet, 0, 0, 133, 84, 966, 16, 266, 168);
@@ -69,16 +99,32 @@ function redrawCanvas(){
         case 'atmosphere':
             drawCanvasCtx.drawImage(symbolSheet, 30, 168, 101, 84, 1100, 16, 151, 134);
 			break;
-	}
+    }
+    
+    // Set the custom bootloader input box to the users last selection
+	if (!useCustomBootInput)
+        $('input[name=boottool]', "#settings").val($('select[name=boottool] option:selected', "#settings").text());
 
     // Draw any text the user requests
     drawText(cfwType.text(), 64, 16);
     drawText("Copyright (C) 2019, Team ReSwitched", 64, 48);
+
+    drawText("Nintendo Switch (ver " + firmwareVersion.val() + ")", 64, 160);
+    drawText("Main Processor    :   Nvidia Tegra X1 SoC", 64, 224);
+    drawText("Memory Test       :   65920K OK", 64, 256);
+
+    drawText("Plug and Play BIOS Extension, v1.0A", 64, 320);
+    drawText("Detecting Primary Master      ...", 96, 352);
+    drawText("Detecting Primary Slave       ...", 96, 384);
+    drawText("Detecting Secondary Master    ... None", 96, 416);
+    drawText("Detecting Secondary Slave     ... None", 96, 448);
+
+    if(shouldDrawCustomBootString)
+        drawText("Hold _" + bootloaderKey.val() + "_ " + bootTime.text() + " to enter _" + bootloader.val() + "_.", 64, CANVAS_HEIGHT - 64);
 }
 
 // Every time an input is changed, modify the preview
 $("#settings input, #settings select").on('change', function() {
-    console.log("Settings change");
     redrawCanvas();
 });
 

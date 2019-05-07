@@ -5,7 +5,7 @@
 	<title>Old School PC BIOS - Splash Bootscreen Generator</title>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto:100,300,400,500,600|Material+Icons" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" />
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" /> -->
 	<link rel="stylesheet" href="assets/font/PerfectDOSVGA437Win.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
 
@@ -163,6 +163,7 @@
 			</div>
 		</form>
 
+		<canvas width="1280" height="720" id="bootPreview"></canvas>
 		<canvas width="1280" height="720" id="topscreen"></canvas>
 		<a id="downloadPNG" class="btn btn-primary" href="#png" role="button">Download PNG</a>
 		
@@ -188,13 +189,14 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/16.7.3/jcanvas.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.7/download.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-	<script src="assets/js/scripts.js"></script>
-	<script type="text/javascript">
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
+	<!-- <script src="assets/js/scripts.js"></script> -->
+	<script src="assets/js/core.js"></script>
+	<!-- <script type="text/javascript">
 		$(document).ready(function () {
 			$('select').material_select();
 		});
-	</script>
+	</script> -->
 </body>
 
 </html>

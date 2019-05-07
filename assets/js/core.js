@@ -22,7 +22,6 @@ drawCanvasCtx.imageSmoothingEnabled = false;
  * @param {string} color The color in which to write the text
  */
 function drawText(text, x, y, color = 'gray'){
-    drawCanvasCtx.font = "32px PerfectDOSVGA437Win";
     drawCanvasCtx.fillStyle = color;
     drawCanvasCtx.textBaseline = "top"; 
 
@@ -160,7 +159,13 @@ $("#settings input, #settings select").on('change', function() {
     redrawCanvas();
 });
 
+$("#downloadPNG").click(function() {
+    $("#downloadPNG")[0].download = "bootlogo.png";
+    $("#downloadPNG")[0].href = drawCanvas.toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+});
+
 // Draw the canvas once the window has loaded
 window.onload = function() {
+    drawCanvasCtx.font = "32px PerfectDOSVGA437Win";
     redrawCanvas();
 };

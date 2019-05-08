@@ -1,5 +1,7 @@
 # bootscreennx
 
+## Old School Boot Screen Generator for the Nintendo Switch
+
 ![Example Image](https://user-images.githubusercontent.com/4750998/57393423-f59be080-71ba-11e9-8517-1cc6d41c3a1e.png)
 Old School BIOS Generator for Hekate/Fusée on Switch
 

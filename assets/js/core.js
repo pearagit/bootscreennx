@@ -164,6 +164,44 @@ $("#downloadPNG").click(function() {
     $("#downloadPNG")[0].href = drawCanvas.toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
 });
 
+
+$("#downloadBMP").click(function() {
+    var rotatedCanvas = document.createElement("canvas");
+    rotatedCanvas.setAttribute("width", 720);
+    rotatedCanvas.setAttribute("height", 1280);
+
+    var link = document.createElement("a");
+
+    var rotatedCanvasCtx = rotatedCanvas.getContext("2d");
+    var oldCanvasImg = new Image();
+    // oldCanvasImg.src = drawCanvas.toDataURL();
+    oldCanvasImg.src = CanvasToBMP.toDataURL(drawCanvas);
+
+    oldCanvasImg.onload = function(){
+        // reset the canvas with new dimensions
+
+        rotatedCanvasCtx.save();
+        // translate and rotate
+        rotatedCanvasCtx.translate(0, 1280);
+        rotatedCanvasCtx.rotate(-(Math.PI / 2));
+        // draw the previows image, now rotated
+        rotatedCanvasCtx.drawImage(oldCanvasImg, 0, 0);               
+        rotatedCanvasCtx.restore();
+    
+        // $("#downloadBMP")[0].download = "bootlogo.bmp";
+        link.download = "btlgo.bmp"
+        // $("#downloadBMP")[0].href = rotatedCanvas.toDataURL("image/bmp");
+        // link.href = rotatedCanvas.toDataURL("image/bmp");
+        // console.log(CanvasToBMP.toDataURL(rotatedCanvas));
+        // link.href = CanvasToBMP.toDataURL(rotatedCanvas);
+        // download(CanvasToBMP.toDataURL(rotatedCanvas), "download.bmp", "image/bmp");
+        link.href = rotatedCanvas.toDataURL("image/bmp");
+        // $("#downloadBMP")[0].click();
+        link.click();
+    }
+
+});
+
 // Draw the canvas once the window has loaded
 window.onload = function() {
     drawCanvasCtx.font = "32px PerfectDOSVGA437Win";

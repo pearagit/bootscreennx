@@ -189,15 +189,16 @@ $("#downloadBMP").click(function() {
         rotatedCanvasCtx.restore();
     
         // $("#downloadBMP")[0].download = "bootlogo.bmp";
-        link.download = "btlgo.bmp"
+        // link.download = "btlgo.bmp"
         // $("#downloadBMP")[0].href = rotatedCanvas.toDataURL("image/bmp");
         // link.href = rotatedCanvas.toDataURL("image/bmp");
         // console.log(CanvasToBMP.toDataURL(rotatedCanvas));
         // link.href = CanvasToBMP.toDataURL(rotatedCanvas);
-        // download(CanvasToBMP.toDataURL(rotatedCanvas), "download.bmp", "image/bmp");
-        link.href = rotatedCanvas.toDataURL("image/bmp");
+        download(CanvasToBMP.toDataURL(rotatedCanvas), "download.bmp", "image/bmp");
+        // link.href = rotatedCanvas.toDataURL("image/bmp");
         // $("#downloadBMP")[0].click();
-        link.click();
+        // link.click();
+        console.log("stinkee");
     }
 
 });

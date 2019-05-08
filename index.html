@@ -29,12 +29,6 @@
 
 	<div class="content">
 
-		<!-- <p id="credit">originally created by
-			<a href="https://twitter.com/sebascontre" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="idea and coding">@sebascontre</a>
-			+
-			<a href="https://twitter.com/yopalonso" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="3DS pixel art">@yopalonso</a><br>
-			updated for Nintendo Switch by <a href="https://github.com/HarryPeach">HarryPeach</a></p> -->
-
 		<div class="container primary">
 			This project has recently undergone a rewrite, so you may encounter bugs or issues. If you do, please create an issue on the <a href="https://github.com/HarryPeach/bootscreennx/issues">GitHub Issues page</a>.
 		</div>
@@ -175,7 +169,8 @@
 
 		<div class="container">
 			<canvas width="1280" height="720" id="bootPreview" style="letter-spacing: 0.1em;"></canvas>
-			<a id="downloadBMP" class="button">Download BMP</a>
+			<!-- BMP downloads disabled for now -->
+			<!-- <a id="downloadBMP" class="button">Download BMP</a> -->
 			<a id="downloadPNG" class="button secondary">Download PNG</a>
 		</div>
 		
@@ -185,14 +180,41 @@
 				<h4>What is this?</h4>
 				<p class="paragraph">This is a tool to generate Old School BIOS images that emulate classic PCs; it is intended to be used on the Nintendo Switch. Currently the only method to display a splash screen is to use <a href="https://github.com/CTCaer/hekate">Hekate</a> and enable autoboot.</p>
 				<h4>How do I use this?</h4>
+				<div class="paragraph">
+					<ol>
+						<li>1. Tweak the above image to your liking to generate your custom boot screen.</li>
+						<li>2. Download the PNG file</li>
+						<li>3. Convert for use with your bootloader</li>
+							<ol>
+								<span class="listtitle"><strong>Hekate (Recommended)</strong></span>
+								<li>Use <a href="https://switchbrew-helper.awoo.fun/hekate-bootlogo/">this tool</a> to convert the png to the bootlogo format.</li>
+								<li>Save the image as "bootlogo.bmp" and save it in your SD root. For usage with Kosmos, place the file in the bootloader/ folder instead.</li>
+							</ol>
+							<ol>
+								<span class="listtitle"><strong>Hekate (Manual)</strong></span>
+								<li>Convert the image to a 32-bit ARGB bitmap</li>
+								<li>Rotate the image 90 degress counter-clockwise</li>
+								<li>Save the image as "bootlogo.bmp" and save it in your SD root. For usage with Kosmos, place the file in the bootloader/ folder instead.</li>
+							</ol>
+							<span>More information about Hekate's policy on loading a bootlogo can be found <a href="https://github.com/CTCaer/hekate/blob/master/README_BOOTLOGO.md">here</a>.</span>
+					</ol>
+				</div>
 				<h4>Who made this?</h4>
+				<ul>
+					<li>
+						<a href="https://github.com/HarryPeach">Harry Peach</a> - Maintainer, rewrote and redesigned the old tool for usage on the Switch.
+					</li>
+					<li>
+						<a href="https://twitter.com/sebascontre ">@sebascontre</a> - Idea and programming behind the original 3DS tool.
+					</li>
+				</ul>
 				<h4>Can I contribute?</h4>
 				<p class="paragraph">Yes! You can <a href="https://github.com/HarryPeach/bootscreennx">fork the repository</a> on GitHub and then submit a pull request.</p>
 		</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="assets/js/canvastobmp.js"></script>
-	<script src="assets/js/download.js"></script>
+	<!-- <script src="assets/js/canvastobmp.js"></script> -->
+	<!-- <script src="assets/js/download.js"></script> -->
 	<script src="assets/js/core.js"></script>
 </body>
 

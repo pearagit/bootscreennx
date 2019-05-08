@@ -6,3 +6,4 @@ Goals of the rewrite:
 - ~~Code cleanup~~
 - Ability to save directly as Switch bitmap
 - ~~Possibly a redesign of the page~~
+- ~~Canvas that resizes to different screens~~

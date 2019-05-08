@@ -4,16 +4,15 @@
 <head>
 	<title>Old School PC BIOS - Splash Bootscreen Generator</title>
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto:100,300,400,500,600|Material+Icons" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css" />
-	<link rel="stylesheet" href="webfont/PerfectDOSVGA437Win.css">
-	<link rel="stylesheet" href="styles.css">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+	<link rel="stylesheet" href="assets/font/PerfectDOSVGA437Win.css">
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="assets/css/core.css">
 
 	<meta property="og:title" content="Old School PC BIOS" />
 	<meta property="og:description" content="Boot Logo Generator for Nintendo Switch" />
 	<meta property="og:url" content="https://harrypeach.github.io/bootscreennx/" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!--[if lt IE 9]>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -21,26 +20,27 @@
 </head>
 
 <body>
-	<a href="https://github.com/HarryPeach/bootscreennx"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+	<span class="load">&nbsp;</span>
+	<div class="headings">
+		<h1>Old School Boot Screen Generator</h1>
+		<h2>for the Nintendo Switch</h2>
+	</div>
 
-	<div class="container">
-		<h1>Old School PC BIOS</h1>
-		<p id="subtitle">Splash Bootscreen Generator</p>
+	<div class="content">
 
-		<p id="credit">originally created by
-			<a href="https://twitter.com/sebascontre" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="idea and coding">@sebascontre</a>
-			+
-			<a href="https://twitter.com/yopalonso" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="3DS pixel art">@yopalonso</a><br>
-			updated for Nintendo Switch by <a href="https://github.com/HarryPeach">HarryPeach</a></p>
+		<div class="container primary">
+			This project has recently undergone a rewrite and is in a testing stage, so you may encounter bugs or issues. If you do, please create an issue on the <a href="https://github.com/HarryPeach/bootscreennx/issues">GitHub Issues page</a>.
+		</div>
 
 		<form id="settings">
-			<div class="row">
+			<div class="container">
+				<h3>Device Settings</h3>
 				<fieldset id="options">
-					<legend>System Options</legend>
-					<div class="input-field col s6 m2">
+					<div class="input-field">
+						<label>Version</label>
 						<select name="firmware">
-							<option value="8.0.0">8.0.0</option>
-							<option value="7.0.1" selected="selected">7.0.1</option>
+							<option value="8.0.0" selected="selected">8.0.0</option>
+							<option value="7.0.1">7.0.1</option>
 							<option value="7.0.0">7.0.0</option>
 							<option value="6.2.0">6.2.0</option>
 							<option value="6.1.0">6.1.0</option>
@@ -61,10 +61,10 @@
 							<option value="2.0.0">2.0.0</option>
 							<option value="1.0.0">1.0.0</option>
 						</select>
-						<label>Version</label>
 					</div>
-					<div class="input-field col s6 m2">
-							<select name="emmc" class="form-control">
+					<div class="input-field">
+							<label>Internal Storage</label>
+							<select name="emmc">
 								<option value="No">None</option>
 								<option value="8G">8GB</option>
 								<option value="16G">16GB</option>
@@ -75,10 +75,10 @@
 								<option value="256G">256GB</option>
 								<option value="512G">512GB</option>
 							</select>
-							<label>Internal Storage</label>
 						</div>
-					<div class="input-field col s6 m2">
-						<select name="sd" class="form-control">
+					<div class="input-field">
+						<label>SD Card</label>
+						<select name="sd">
 							<option value="No">None</option>
 							<option value="8G">8GB</option>
 							<option value="16G">16GB</option>
@@ -89,25 +89,25 @@
 							<option value="256G">256GB</option>
 							<option value="512G">512GB</option>
 						</select>
-						<label>SD Card</label>
 					</div>
-					<div class="input-field col s12 m4">
-						<select name="logoOptions" class="form-control form-control-sm">
+					<div class="input-field">
+						<label>Side Logo</label>
+						<select name="logoOptions">
 							<option value="noLogo">No Logo</option>
 							<option value="energyStar" selected="selected">Energy Star Logo</option>
 							<option value="energyStarAtmosphere">Energy Star Atmosphere</option>
 							<option value="atmosphere">Atmosphere Logo</option>
 						</select>
-						<label>Side Logo</label>
 					</div>
 				</fieldset>
 			</div>
-			<div class="row">
+			<div class="container">
+				<h3>Firmware Settings</h3>
 				<fieldset id="options">
-					<legend>Firmware Options</legend>
-					<div class="input-field col s12 m4">
-						<input placeholder="CFW Type" type="text" name="type" val="." style="display: none;" class="form-control form-control-sm" />
-						<input placeholder="CFW Copyright" type="text" name="typecopyright" val="." style="display: none;" class="form-control form-control-sm" />
+					<div class="input-field">
+						<label>Firmware</label>
+						<input placeholder="Firmware Name" type="text" name="type" val="." style="display: none;" />
+						<input placeholder="Copyright Info" type="text" name="typecopyright" val="." style="display: none;" />
 						<select name="type" class="form-control form-control-sm">
 							<option value="atmosphere" selected="selected">Atmosphere</option>
 							<option value="reinx">ReiNX</option>
@@ -117,14 +117,15 @@
 						</select>
 					</div>
 			</div>
-			<div class="row">
+			<div class="container">
+				<h3>Bootloader Settings</h3>
 				<fieldset id="otheroptions">
-					<legend>Other Options</legend>
 					<p>
 						<input type="checkbox" class="filled-in" id="hold" name="hold" checked="checked" />
 						<label for="hold"></label>
-						<span><strong>Hold</strong></span>
-						<span class="input-field inline">
+						<span>Hold</span>
+						<span class="input-field">
+							<label>Keybind</label>
 							<select name="onboot" class="form-control form-control-sm">
 								<option value="VOL DOWN" selected="selected">VOL DOWN</option>
 								<option value="VOL UP">VOL UP</option>
@@ -143,13 +144,15 @@
 								<option value="HOME">HOME</option>
 							</select>
 						</span>
-						<span class="input-field inline">
+						<span class="input-field">
+							<label>Timing</label>
 							<select name="firstTime" class="form-control form-control-sm">
 								<option value="now">now</option>
 								<option value="boot" selected="selected">on boot</option>
 							</select>
 						</span> <span>to enter</span>
-						<span class="input-field inline">
+						<span class="input-field">
+							<label>Bootloader</label>
 							<input type="text" name="boottool" val="." style="display: none;" class="form-control form-control-sm" />
 							<select name="boottool" class="form-control form-control-sm">
 								<option value="hekate" selected="selected">Hekate</option>
@@ -163,38 +166,56 @@
 			</div>
 		</form>
 
-		<canvas width="1280" height="720" id="topscreen"></canvas>
-		<a id="downloadPNG" class="btn btn-primary" href="#png" role="button">Download PNG</a>
+		<div class="container">
+			<canvas width="1280" height="720" id="bootPreview"></canvas>
+			<canvas width="1280" height="720" id="scaledCanvas"></canvas>
+			<!-- BMP downloads disabled for now -->
+			<!-- <a id="downloadBMP" class="button">Download BMP</a> -->
+			<a id="downloadPNG" class="button secondary">Download PNG</a>
+		</div>
 		
-		<div class="row">
+		<div class="container">
 			<fieldset id="options">
-				<legend>About</legend>
-				<h5>What is this?</h5>
-				<p>This is a tool to generate Old School BIOS images that emulate classic PCs; it is intended to be used on the Nintendo Switch. Currently the only method to display a splash screen is to use <a href="https://github.com/CTCaer/hekate">Hekate</a> and enable autoboot.</p>
-				<h5>How do I use this?</h5>
-				<ol>
-					<li>Tweak the above settings to your liking to generate your custom splash</li>
-					<li>Download the PNG file</li>
-					<b>To convert the file for use on hekate:</b>
-					<li>Convert the image to a 32-bit (ARG8) BMP</li>
-					<li>Rotate the image 90 degrees counter-clockwise</li>
-					<li>Save the file as "bootlogo.bmp" and save it in the booloader/ folder on your SD root</li>
-					<span>More information about Hekate's policy on loading a bootlogo can be found <a href="https://github.com/CTCaer/hekate/blob/master/README_BOOTLOGO.md">here</a></span>
-				</ol>
-				<h5>Can I contribute?</h5>
-				<p>Yes! You can <a href="https://github.com/HarryPeach/bootscreennx">fork the repository</a> on Github and then submit a pull request.</p>
+				<h3>About</h3>
+				<h4>What is this?</h4>
+				<p class="paragraph">This is a tool to generate Old School BIOS images that emulate classic PCs; it is intended to be used on the Nintendo Switch. Currently the only method to display a splash screen is to use <a href="https://github.com/CTCaer/hekate">Hekate</a> and enable autoboot.</p>
+				<h4>How do I use this?</h4>
+				<div class="paragraph">
+					<ol>
+						<li>1. Tweak the above image to your liking to generate your custom boot screen.</li>
+						<li>2. Download the PNG file</li>
+						<li>3. Convert for use with your bootloader</li>
+							<ol>
+								<span class="listtitle"><strong>Hekate (Recommended)</strong></span>
+								<li>Use <a href="https://switchbrew-helper.awoo.fun/hekate-bootlogo/">this tool</a> to convert the png to the bootlogo format.</li>
+								<li>Save the image as "bootlogo.bmp" and save it in your SD root. For usage with Kosmos, place the file in the bootloader/ folder instead.</li>
+							</ol>
+							<ol>
+								<span class="listtitle"><strong>Hekate (Manual)</strong></span>
+								<li>Convert the image to a 32-bit ARGB bitmap</li>
+								<li>Rotate the image 90 degress counter-clockwise</li>
+								<li>Save the image as "bootlogo.bmp" and save it in your SD root. For usage with Kosmos, place the file in the bootloader/ folder instead.</li>
+							</ol>
+							<span>More information about Hekate's policy on loading a bootlogo can be found <a href="https://github.com/CTCaer/hekate/blob/master/README_BOOTLOGO.md">here</a>.</span>
+					</ol>
+				</div>
+				<h4>Who made this?</h4>
+				<ul>
+					<li>
+						<a href="https://github.com/HarryPeach">Harry Peach</a> - Maintainer, rewrote and redesigned the old tool for usage on the Switch.
+					</li>
+					<li>
+						<a href="https://twitter.com/sebascontre ">@sebascontre</a> - Idea and programming behind the original 3DS tool.
+					</li>
+				</ul>
+				<h4>Can I contribute?</h4>
+				<p class="paragraph">Yes! You can <a href="https://github.com/HarryPeach/bootscreennx">fork the repository</a> on GitHub and then submit a pull request.</p>
 		</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/16.7.3/jcanvas.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.7/download.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-	<script src="scripts.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('select').material_select();
-		});
-	</script>
+	<!-- <script src="assets/js/canvastobmp.js"></script> -->
+	<!-- <script src="assets/js/download.js"></script> -->
+	<script src="assets/js/core.js"></script>
 </body>
 
 </html>

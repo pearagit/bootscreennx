@@ -15,7 +15,7 @@ const CANVAS_HEIGHT = 720;
 
 // Load the symbols spritesheet, containing the energy logos
 var symbolSheet = new Image();
-symbolSheet.src = "/assets/img/symbols.png";
+symbolSheet.src = "assets/img/symbols.png";
 
 // Disable image smoothing, results in a blurry output otherwise
 drawCanvasCtx.imageSmoothingEnabled = false;

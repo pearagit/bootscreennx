@@ -2,6 +2,12 @@
 const drawCanvas = document.querySelector("#bootPreview");
 // The context of the preview canvas
 const drawCanvasCtx = drawCanvas.getContext("2d");
+
+// The scaled canvas
+const scaledCanvas = document.querySelector("#scaledCanvas");
+// The context of the scaled canvas
+const scaledCanvasCtx = scaledCanvas.getContext("2d");
+
 // Width of the Nintendo Switch screen, and by extension, the canvas
 const CANVAS_WIDTH = 1280;
 // Height of the Nintendo Switch screen, and by extension, the canvas
@@ -13,6 +19,8 @@ symbolSheet.src = "/assets/img/symbols.png";
 
 // Disable image smoothing, results in a blurry output otherwise
 drawCanvasCtx.imageSmoothingEnabled = false;
+scaledCanvasCtx.imageSmoothingEnabled = false;
+
 drawCanvasCtx.font = "32px PerfectDOSVGA437Win";
 
 /**
@@ -153,6 +161,16 @@ function redrawCanvas(){
 
     if(shouldDrawCustomBootString)
         drawText("Hold _" + bootloaderKey.val() + "_ " + bootTime.text() + " to enter _" + bootloader.val() + "_.", 64, CANVAS_HEIGHT - 64);
+
+    // Redraw the scaled canvas
+    scaleCanvas();
+}
+
+/**
+ * Creates a scaled copy of the drawcanvas that adapts to screen sizes
+ */
+function scaleCanvas(){
+    scaledCanvasCtx.drawImage(drawCanvas, 0, 0, 1280, 720, 0, 0, scaledCanvas.width, scaledCanvas.height);
 }
 
 // Every time an input is changed, modify the preview
@@ -208,3 +226,8 @@ $("#downloadBMP").click(function() {
 window.onload = function() {
     redrawCanvas();
 };
+
+// Handle window resizes
+$( window ).resize(function() {
+    scaleCanvas();
+});

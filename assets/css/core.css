@@ -157,6 +157,10 @@ strong{
 }
 
 #bootPreview{
-    display: block;
+    display: none;
     margin: 0 auto;
+}
+
+#scaledCanvas{
+    width: 100%;
 }

@@ -149,18 +149,18 @@ function redrawCanvas(){
     drawText($('input[name=type]', "#settings").val(), 64, 16);
     drawText(copyrightLine, 64, 48);
 
-    drawText("Nintendo Switch (ver " + firmwareVersion.val() + ")", 64, 160);
-    drawText("Main Processor    :   Nvidia Tegra X1 SoC", 64, 224);
-    drawText("Memory Test       :   65920K OK", 64, 256);
+    drawText("Nintendo Switch (ver " + firmwareVersion.val() + ")", 32, 160);
+    drawText("Main Processor    :   Nvidia Tegra X1 SoC", 32, 224);
+    drawText("Memory Test       :   65920K OK", 32, 256);
 
-    drawText("Plug and Play BIOS Extension, v1.0A", 64, 320);
-    drawText("Detecting Primary Master      ... " + emmcSize.val() + " Internal Storage", 96, 352);
-    drawText("Detecting Primary Slave       ... " + sdSize.val() + " SD Card", 96, 384);
-    drawText("Detecting Secondary Master    ... None", 96, 416);
-    drawText("Detecting Secondary Slave     ... None", 96, 448);
+    drawText("Plug and Play BIOS Extension, v1.0A", 32, 320);
+    drawText("Detecting Primary Master      ... " + emmcSize.val() + " Internal Storage", 64, 352);
+    drawText("Detecting Primary Slave       ... " + sdSize.val() + " SD Card", 64, 384);
+    drawText("Detecting Secondary Master    ... None", 64, 416);
+    drawText("Detecting Secondary Slave     ... None", 64, 448);
 
     if(shouldDrawCustomBootString)
-        drawText("Hold _" + bootloaderKey.val() + "_ " + bootTime.text() + " to enter _" + bootloader.val() + "_.", 64, CANVAS_HEIGHT - 64);
+        drawText("Hold _" + bootloaderKey.val() + "_ " + bootTime.text() + " to enter _" + bootloader.val() + "_.", 16, CANVAS_HEIGHT - 40);
 
     // Redraw the scaled canvas
     scaleCanvas();

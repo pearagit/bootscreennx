@@ -13,6 +13,7 @@ symbolSheet.src = "/assets/img/symbols.png";
 
 // Disable image smoothing, results in a blurry output otherwise
 drawCanvasCtx.imageSmoothingEnabled = false;
+drawCanvasCtx.font = "32px PerfectDOSVGA437Win";
 
 /**
  * Draws a string of text, with accurate character spacing
@@ -205,6 +206,5 @@ $("#downloadBMP").click(function() {
 
 // Draw the canvas once the window has loaded
 window.onload = function() {
-    drawCanvasCtx.font = "32px PerfectDOSVGA437Win";
     redrawCanvas();
 };

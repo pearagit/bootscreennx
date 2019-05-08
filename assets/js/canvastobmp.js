@@ -28,7 +28,7 @@ var CanvasToBMP = {
   
           file = new ArrayBuffer(fileLength),          // raw byte buffer (returned)
           view = new DataView(file),                   // handle endian, reg. width etc.
-          pos = 0, x, y = 0, p, s = 0, a, v;
+          pos = 0, x, y = 0, p, s = 0, a, r, g, b, v;
   
       // write file header
       setU16(0x4d42);          // BM
@@ -59,8 +59,9 @@ var CanvasToBMP = {
         x = 0;
         while (x < w4) {
           v = data32[s++];                     // get ABGR
-          a = v >>> 24;                        // alpha channel
-          view.setUint32(p + x, (v << 8) | a); // set BGRA
+          a = (v & 0xff000000) >>> 0;
+          r = (v & 0xff) >>> 0;
+          view.setUint32(p + x, (a & r & g & b) >>> 0); // set BGRA
           x += 4;
         }
         y++
@@ -105,18 +106,18 @@ var CanvasToBMP = {
   
   // -------- DEMO CODE -------------
   
-  var canvas = document.querySelector("canvas"),
-    w = canvas.width,
-    h = canvas.height,
-    ctx = canvas.getContext("2d"),
-    gr = ctx.createLinearGradient(0, 0, w, h),
-    img = new Image();
+  // var canvas = document.querySelector("canvas"),
+  //   w = canvas.width,
+  //   h = canvas.height,
+  //   ctx = canvas.getContext("2d"),
+  //   gr = ctx.createLinearGradient(0, 0, w, h),
+  //   img = new Image();
   
-  gr.addColorStop(0, "hsl(" + (Math.random() * 360) + ", 90%, 70%)"); 
-  gr.addColorStop(1, "hsl(" + (Math.random() * 360) + ", 100%, 30%)"); 
-  ctx.fillStyle = gr;
-  ctx.fillRect(0, 0, w, h);
+  // gr.addColorStop(0, "hsl(" + (Math.random() * 360) + ", 90%, 70%)"); 
+  // gr.addColorStop(1, "hsl(" + (Math.random() * 360) + ", 100%, 30%)"); 
+  // ctx.fillStyle = gr;
+  // ctx.fillRect(0, 0, w, h);
   
-  // append image from the data-uri returned by the CanvasToBMP code below:
-  img.src = CanvasToBMP.toDataURL(canvas);
-  document.body.appendChild(img);
+  // // append image from the data-uri returned by the CanvasToBMP code below:
+  // img.src = CanvasToBMP.toDataURL(canvas);
+  // document.body.appendChild(img);

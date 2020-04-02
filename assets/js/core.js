@@ -61,7 +61,9 @@ function redrawCanvas(){
     // The size of the external SD
     var sdSize = $('select[name=sd] option:selected', "#settings");
     // Copyright information, at the bottom of the screen
-    var copyrightLine = "Copyright (C) 2019, ";
+    var currentDate = new Date();
+    var currentYear = String(currentDate.getFullYear()); 	
+    var copyrightLine = ("Copyright (C) " +  currentYear + ", ");
     // The chosen top-right logo to display
     var sideLogo = $('select[name=logoOptions] option:selected', "#settings");
     // Whether or not to display the bootloader message at the bottom of the screen

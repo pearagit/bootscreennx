@@ -1,38 +1,68 @@
-# bootscreennx
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Old School Boot Screen Generator for the Nintendo Switch
+## Available Scripts
 
-![Example Image](https://user-images.githubusercontent.com/4750998/57393423-f59be080-71ba-11e9-8517-1cc6d41c3a1e.png)
-Old School BIOS Generator for Hekate/Fusée on Switch
+In the project directory, you can run:
 
-## How to use
+### `npm start`
 
-1. Open the index page
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-2. Tweak the settings to your liking to generate your custom splash
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-3. Download the PNG file
+### `npm test`
 
-### To use the boot logo with Hekate (Recommended)
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-1. Use [this tool](https://switchbrew-helper.awoo.fun/hekate-bootlogo/) to convert the png to the bootlogo format.
-2. Save the image as "bootlogo.bmp" and save it in your SD root. For usage with Kosmos, place the file in the bootloader/ folder instead.
+### `npm run build`
 
-### To use the boot logo with Hekate (Manually)
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-1. Convert the image to a 32-bit (ARG8) BMP
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-2. Rotate the image 90 degrees counter-clockwise
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-3. Save the image as "bootlogo.bmp" and save it in your SD root. For usage with Kosmos, place the file in the bootloader/ folder instead.
+### `npm run eject`
 
-More information about Hekate's policy on loading a bootlogo can be found [here](https://github.com/CTCaer/hekate/blob/master/README_BOOTLOGO.md)
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-## How to contirbute
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Yes! You can [fork the repository](https://github.com/HarryPeach/bootscreennx) on Github and then submit a pull request.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## Licensing
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-    Licensed under the MIT license (See LICENSE.md)
-    The Atmosphère logo is property of Team ReSwitched 2018, licensed under the GNU GPL v2.0
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

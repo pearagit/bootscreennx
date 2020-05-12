@@ -1,4 +1,5 @@
 import React from "react";
+import DeviceData from "../device_data.json";
 
 export default function CustomDropdown(props) {
 	const checkbox = React.useRef();
@@ -9,7 +10,11 @@ export default function CustomDropdown(props) {
 	};
 
 	const onValueChange = (e) => {
-		props.customSet(e.target.value, checkbox.current.checked);
+		if (checkbox.current.checked) {
+			props.customSet(e.target.value, true);
+		} else {
+			props.customSet(e.target.selectedIndex, false);
+		}
 	};
 
 	return (
@@ -26,9 +31,11 @@ export default function CustomDropdown(props) {
 					<input type="text" onChange={onValueChange} />
 				) : (
 					<select id="cars" onChange={onValueChange}>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
+						{DeviceData[props.deviceDataId].map((el, index) => (
+							<option key={index} value={el}>
+								{el}
+							</option>
+						))}
 					</select>
 				)}
 			</form>

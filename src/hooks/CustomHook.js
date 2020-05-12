@@ -6,7 +6,7 @@ export default function useCustomHook(initialIndex, deviceDataId) {
 	const [customInfo, setCustomInfo] = React.useState(false);
 
 	const setValue = (val, custom) => {
-		setSelectedId(custom ? val : val - 1);
+		setSelectedId(custom ? val : val);
 		setCustomInfo(custom);
 	};
 

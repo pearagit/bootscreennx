@@ -10,7 +10,7 @@ export default function CustomDropdown(props) {
 	};
 
 	const onValueChange = (e) => {
-		if (checkbox.current.checked) {
+		if (checkbox.current?.checked) {
 			props.customSet(e.target.value, true);
 		} else {
 			props.customSet(e.target.selectedIndex, false);
@@ -19,15 +19,16 @@ export default function CustomDropdown(props) {
 
 	return (
 		<>
-			{props.deviceDataId}
 			<form>
-				<input
-					type="checkbox"
-					checked={customInput}
-					onChange={onCheckboxChange}
-					ref={checkbox}
-				/>
-				{customInput ? (
+				{!props.disableCustom && (
+					<input
+						type="checkbox"
+						checked={customInput}
+						onChange={onCheckboxChange}
+						ref={checkbox}
+					/>
+				)}
+				{customInput && !props.disableCustom ? (
 					<input type="text" onChange={onValueChange} />
 				) : (
 					<select id="cars" onChange={onValueChange}>

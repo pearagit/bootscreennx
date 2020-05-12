@@ -4,12 +4,23 @@ import useCustomHook from "./hooks/CustomHook";
 import CustomDropdown from "./components/CustomDropdown";
 
 function App() {
-	const [custom, setCustom] = useCustomHook(0, "version");
+	const [version, setVersion] = useCustomHook(0, "version");
+	const [storage, setStorage] = useCustomHook(0, "storage_size");
+	const [sideLogo, setSideLogo] = useCustomHook(0, "side_logo");
 
 	return (
 		<>
-			<CustomDropdown customSet={setCustom} deviceDataId={"version"} />
-			{custom}
+			<CustomDropdown customSet={setVersion} deviceDataId={"version"} />
+			<CustomDropdown
+				customSet={setStorage}
+				deviceDataId={"storage_size"}
+			/>
+			<CustomDropdown
+				customSet={setSideLogo}
+				deviceDataId={"side_logo"}
+				disableCustom
+			/>
+			{storage}
 		</>
 	);
 }

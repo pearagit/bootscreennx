@@ -1,16 +1,15 @@
 import React from "react";
 import DeviceData from "./device_data.json";
 import "./App.css";
-import useCustomHook from "./CustomHook";
+import useCustomHook from "./hooks/CustomHook";
+import CustomDropdown from "./components/CustomDropdown";
 
 function App() {
-	const [version, setVersion] = React.useState(0);
-	const [storage, setStorage] = React.useState(0);
 	const [custom, setCustom] = useCustomHook(0, "version");
 
 	return (
 		<>
-			<button onClick={() => setCustom("2", false)}>clickForFun</button>
+			<CustomDropdown customSet={setCustom} deviceDataId={"version"} />
 			{custom}
 		</>
 	);

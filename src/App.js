@@ -10,6 +10,19 @@ function App() {
 	const [sdSize, setSdSize] = useCustomHook(0, "sd_size");
 	const [sideLogo, setSideLogo] = useCustomHook(0, "side_logo");
 	const [firmware, setFirmware] = useCustomHook(0, "firmware");
+	const [copyrightHolder, setCopyrightHolder] = React.useState("");
+	const [bootloaderKeybind, setBootloaderKeybind] = useCustomHook(
+		0,
+		"bootloader_keybind"
+	);
+	const [bootloaderTiming, setBootloaderTiming] = useCustomHook(
+		0,
+		"bootloader_timing"
+	);
+	const [bootloaderName, setBootloaderName] = useCustomHook(
+		0,
+		"bootloader_name"
+	);
 
 	return (
 		<>
@@ -25,12 +38,33 @@ function App() {
 				disableCustom
 			/>
 			<CustomDropdown customSet={setFirmware} deviceDataId={"firmware"} />
+			<input
+				type="text"
+				value={copyrightHolder}
+				onChange={(e) => setCopyrightHolder(e.target.value)}
+			></input>
+			<CustomDropdown
+				customSet={setBootloaderKeybind}
+				deviceDataId={"bootloader_keybind"}
+			/>
+			<CustomDropdown
+				customSet={setBootloaderTiming}
+				deviceDataId={"bootloader_timing"}
+			/>
+			<CustomDropdown
+				customSet={setBootloaderName}
+				deviceDataId={"bootloader_name"}
+			/>
 			<BootScreenCanvas
 				version={version}
 				storage={storage}
 				sdSize={sdSize}
 				sideLogo={sideLogo}
 				firmware={firmware}
+				copyrightHolder={copyrightHolder}
+				bootloaderKeybind={bootloaderKeybind}
+				bootloaderTiming={bootloaderTiming}
+				bootloaderName={bootloaderName}
 			/>
 		</>
 	);

@@ -34,15 +34,53 @@ export default function BootScreenCanvas(props) {
 		context.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 		ctx.font = "32px PerfectDOSVGA437Win";
 		ctx.fillStyle = "white";
+
 		drawText(ctx, props.firmware, 64, 16);
+		drawText(ctx, "Copyright (C) 2020, " + props.copyrightHolder, 64, 48);
 
 		drawText(ctx, `Nintendo Switch (ver ${props.version})`, 32, 160);
+		drawText(ctx, "Main Processor    :   Nvidia Tegra X1 SoC", 32, 224);
+		drawText(ctx, "Memory Test       :   65920K OK", 32, 256);
+		drawText(ctx, "Plug and Play BIOS Extension, v1.0A", 32, 320);
+		drawText(
+			ctx,
+			"Detecting Primary Master      ... " +
+				props.storage +
+				" Internal Storage",
+			64,
+			352
+		);
+		drawText(
+			ctx,
+			"Detecting Primary Slave       ... " + props.sdSize + " SD Card",
+			64,
+			384
+		);
+		drawText(ctx, "Detecting Secondary Master    ... None", 64, 416);
+		drawText(ctx, "Detecting Secondary Slave     ... None", 64, 448);
+
+		drawText(
+			ctx,
+			"Hold _" +
+				props.bootloaderKeybind +
+				"_ " +
+				props.bootloaderTiming +
+				" to enter _" +
+				props.bootloaderName +
+				"_.",
+			16,
+			CANVAS_HEIGHT - 40
+		);
 	}, [
 		props.version,
 		props.storage,
 		props.sdSize,
 		props.sideLogo,
 		props.firmware,
+		props.bootloaderKeybind,
+		props.bootloaderTiming,
+		props.bootloaderName,
+		props.copyrightHolder,
 	]);
 
 	return (

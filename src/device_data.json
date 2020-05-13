@@ -3,5 +3,8 @@
     "storage_size": ["32GB", "16GB", "8GB"],
     "sd_size": ["8GB", "16GB", "32GB"],
     "side_logo": ["No Logo", "One Logo", "Two Logo"],
-    "firmware": ["Atmosphere", "ReiNX", "SX OS"]
+    "firmware": ["Atmosphere", "ReiNX", "SX OS"],
+    "bootloader_keybind": ["VOL DOWN", "VOL UP"],
+    "bootloader_timing": ["now", "on boot"],
+    "bootloader_name": ["Hekate"]
 }

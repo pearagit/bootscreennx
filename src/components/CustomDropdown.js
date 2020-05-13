@@ -43,7 +43,7 @@ export default function CustomDropdown(props) {
 						))}
 					</select>
 				)}
-				<label for={props.deviceDataId}>{props.label}</label>
+				<label htmlFor={props.deviceDataId}>{props.label}</label>
 			</form>
 		</>
 	);

@@ -21,17 +21,37 @@ function drawText(context, text, x, y, color = "gray") {
 	}
 }
 
+function scaleCanvas(origin, destination) {
+	destination.current
+		.getContext("2d")
+		.drawImage(
+			origin.current,
+			0,
+			0,
+			1280,
+			720,
+			0,
+			0,
+			destination.current.width,
+			destination.current.height
+		);
+}
+
 export default function BootScreenCanvas(props) {
-	const canvas = React.useRef();
 	const [symbols, setSymbols] = React.useState(new Image());
+	const canvas = React.useRef();
 	const context = React.useRef();
+	const scaledCanvas = React.useRef();
+	const scaledContext = React.useRef();
 
 	useEffect(() => {
 		context.current = canvas.current.getContext("2d");
+		scaledContext.current = scaledCanvas.current.getContext("2d");
+		context.current.imageSmoothingEnabled = false;
+		scaledContext.current.imageSmoothingEnabled = false;
 		let img = new Image();
 		img.src = "/symbols.png";
 		img.onload = () => setSymbols(img);
-		// setSymbols(img);
 	}, []);
 
 	useEffect(() => {
@@ -41,7 +61,6 @@ export default function BootScreenCanvas(props) {
 		ctx.font = "32px PerfectDOSVGA437Win";
 		ctx.fillStyle = "white";
 
-		ctx.fillStyle = "red";
 		ctx.drawImage(symbols, 40, 10, 21, 29, 8, 16, 42, 58);
 
 		switch (props.sideLogo) {
@@ -96,6 +115,8 @@ export default function BootScreenCanvas(props) {
 			16,
 			CANVAS_HEIGHT - 40
 		);
+
+		scaleCanvas(canvas, scaledCanvas);
 	}, [
 		props.version,
 		props.storage,
@@ -136,9 +157,17 @@ export default function BootScreenCanvas(props) {
 		<>
 			<button onClick={downloadPNG}>Download png</button>
 			<button onClick={downloadBitmap}>Download bitmap</button>
+			<br></br>
+			<canvas
+				style={{ width: "100%", imageRendering: "pixelated" }}
+				ref={scaledCanvas}
+				width={CANVAS_WIDTH}
+				height={CANVAS_HEIGHT}
+			/>
 			<canvas
 				className={styles}
-				style={{ fontFamily: "DOSVGA" }}
+				// style={{ fontFamily: "DOSVGA" }}
+				style={{ display: "none" }}
 				ref={canvas}
 				width={CANVAS_WIDTH}
 				height={CANVAS_HEIGHT}

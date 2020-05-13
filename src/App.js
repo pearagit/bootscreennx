@@ -6,8 +6,8 @@ import BootScreenCanvas from "./components/BootScreenCanvas";
 
 function App() {
 	const [version, setVersion] = useCustomHook(0, "version");
-	const [storage, setStorage] = useCustomHook(0, "storage_size");
-	const [sdSize, setSdSize] = useCustomHook(0, "sd_size");
+	const [storage, setStorage] = useCustomHook(2, "storage_size");
+	const [sdSize, setSdSize] = useCustomHook(3, "sd_size");
 	const [sideLogo, setSideLogo] = useCustomHook(1, "side_logo");
 	const [firmware, setFirmware] = useCustomHook(0, "firmware");
 	const [copyrightHolder, setCopyrightHolder] = React.useState("");

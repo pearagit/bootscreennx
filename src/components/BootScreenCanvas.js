@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Jimp from "jimp";
 import styles from "./BootScreenCanvas.module.css";
 
 const CANVAS_WIDTH = 1280;
@@ -83,13 +84,40 @@ export default function BootScreenCanvas(props) {
 		props.copyrightHolder,
 	]);
 
+	const downloadPNG = () => {
+		const png = canvas.current.toDataURL("image/png");
+		const download = document.createElement("a");
+		download.href = png;
+		download.download = "bootlogo.png";
+		download.click();
+	};
+
+	const downloadBitmap = () => {
+		Jimp.read(canvas.current.toDataURL("image/png"))
+			.then((image) => {
+				return image.rotate(90);
+			})
+			.then((image) => {
+				const download = document.createElement("a");
+				image.getBase64Async("image/bmp").then((a) => {
+					download.href = a;
+					download.download = "bootlogo2.png";
+					download.click();
+				});
+			});
+	};
+
 	return (
-		<canvas
-			className={styles}
-			style={{ fontFamily: "DOSVGA" }}
-			ref={canvas}
-			width={CANVAS_WIDTH}
-			height={CANVAS_HEIGHT}
-		/>
+		<>
+			<button onClick={downloadPNG}>Download png</button>
+			<button onClick={downloadBitmap}>Download bitmap</button>
+			<canvas
+				className={styles}
+				style={{ fontFamily: "DOSVGA" }}
+				ref={canvas}
+				width={CANVAS_WIDTH}
+				height={CANVAS_HEIGHT}
+			/>
+		</>
 	);
 }

@@ -1,4 +1,6 @@
 import React from "react";
+import { MdEdit, MdInput } from "react-icons/md";
+
 import DeviceData from "../device_data.json";
 
 export default function CustomDropdown(props) {
@@ -6,11 +8,11 @@ export default function CustomDropdown(props) {
 	const [customInput, setCustomInput] = React.useState(false);
 
 	const onCheckboxChange = (e) => {
-		setCustomInput(e.target.checked);
+		setCustomInput(!customInput);
 	};
 
 	const onValueChange = (e) => {
-		if (checkbox.current?.checked) {
+		if (customInput) {
 			props.customSet(e.target.value, true);
 		} else {
 			props.customSet(e.target.selectedIndex, false);
@@ -20,14 +22,12 @@ export default function CustomDropdown(props) {
 	return (
 		<>
 			<form>
-				{!props.disableCustom && (
-					<input
-						type="checkbox"
-						checked={customInput}
-						onChange={onCheckboxChange}
-						ref={checkbox}
-					/>
-				)}
+				{!props.disableCustom &&
+					(customInput ? (
+						<MdInput onClick={onCheckboxChange} />
+					) : (
+						<MdEdit onClick={onCheckboxChange} />
+					))}
 				{customInput && !props.disableCustom ? (
 					<input
 						id={props.deviceDataId}

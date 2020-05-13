@@ -166,7 +166,6 @@ export default function BootScreenCanvas(props) {
 			/>
 			<canvas
 				className={styles}
-				// style={{ fontFamily: "DOSVGA" }}
 				style={{ display: "none" }}
 				ref={canvas}
 				width={CANVAS_WIDTH}

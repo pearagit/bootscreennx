@@ -26,18 +26,32 @@ function App() {
 
 	return (
 		<>
-			<CustomDropdown customSet={setVersion} deviceDataId={"version"} />
+			<CustomDropdown
+				customSet={setVersion}
+				deviceDataId={"version"}
+				label={"Version"}
+			/>
 			<CustomDropdown
 				customSet={setStorage}
 				deviceDataId={"storage_size"}
+				label={"Storage Size"}
 			/>
-			<CustomDropdown customSet={setSdSize} deviceDataId={"sd_size"} />
+			<CustomDropdown
+				customSet={setSdSize}
+				deviceDataId={"sd_size"}
+				label={"SD Size"}
+			/>
 			<CustomDropdown
 				customSet={setSideLogo}
 				deviceDataId={"side_logo"}
+				label={"Logo"}
 				disableCustom
 			/>
-			<CustomDropdown customSet={setFirmware} deviceDataId={"firmware"} />
+			<CustomDropdown
+				customSet={setFirmware}
+				deviceDataId={"firmware"}
+				label={"Firmware"}
+			/>
 			<input
 				type="text"
 				value={copyrightHolder}
@@ -46,14 +60,17 @@ function App() {
 			<CustomDropdown
 				customSet={setBootloaderKeybind}
 				deviceDataId={"bootloader_keybind"}
+				label={"Bootloader Keybind"}
 			/>
 			<CustomDropdown
 				customSet={setBootloaderTiming}
 				deviceDataId={"bootloader_timing"}
+				label={"Bootloader Timing"}
 			/>
 			<CustomDropdown
 				customSet={setBootloaderName}
 				deviceDataId={"bootloader_name"}
+				label={"Bootloader Name"}
 			/>
 			<BootScreenCanvas
 				version={version}

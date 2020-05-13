@@ -31,7 +31,7 @@ export default function CustomDropdown(props) {
 				{customInput && !props.disableCustom ? (
 					<input type="text" onChange={onValueChange} />
 				) : (
-					<select id="cars" onChange={onValueChange}>
+					<select onChange={onValueChange}>
 						{DeviceData[props.deviceDataId].map((el, index) => (
 							<option key={index} value={el}>
 								{el}

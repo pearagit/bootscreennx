@@ -2,7 +2,7 @@
     "version": ["10.0.0", "9.0.0", "8.0.1"],
     "storage_size": ["32GB", "16GB", "8GB"],
     "sd_size": ["8GB", "16GB", "32GB"],
-    "side_logo": ["No Logo", "One Logo", "Two Logo"],
+    "side_logo": ["No Logo", "Energy Star", "Energy Star Atmosphere", "Atmosphere"],
     "firmware": ["Atmosphere", "ReiNX", "SX OS"],
     "bootloader_keybind": ["VOL DOWN", "VOL UP"],
     "bootloader_timing": ["now", "on boot"],

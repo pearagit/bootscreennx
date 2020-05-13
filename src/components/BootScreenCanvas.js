@@ -23,10 +23,15 @@ function drawText(context, text, x, y, color = "gray") {
 
 export default function BootScreenCanvas(props) {
 	const canvas = React.useRef();
+	const [symbols, setSymbols] = React.useState(new Image());
 	const context = React.useRef();
 
 	useEffect(() => {
 		context.current = canvas.current.getContext("2d");
+		let img = new Image();
+		img.src = "/symbols.png";
+		img.onload = () => setSymbols(img);
+		// setSymbols(img);
 	}, []);
 
 	useEffect(() => {
@@ -35,6 +40,25 @@ export default function BootScreenCanvas(props) {
 		context.current.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 		ctx.font = "32px PerfectDOSVGA437Win";
 		ctx.fillStyle = "white";
+
+		ctx.fillStyle = "red";
+		ctx.drawImage(symbols, 40, 10, 21, 29, 8, 16, 42, 58);
+
+		switch (props.sideLogo) {
+			case "Energy Star":
+				ctx.drawImage(symbols, 0, 0, 133, 84, 966, 16, 266, 168);
+				ctx.fillStyle = "black";
+				ctx.fillRect(1040, 36, 50, 60);
+				break;
+			case "Energy Star Atmosphere":
+				ctx.drawImage(symbols, 0, 84, 133, 84, 966, 16, 266, 168);
+				break;
+			case "Atmosphere":
+				ctx.drawImage(symbols, 30, 168, 101, 84, 1100, 16, 151, 134);
+				break;
+			default:
+				break;
+		}
 
 		drawText(ctx, props.firmware, 64, 16);
 		drawText(ctx, "Copyright (C) 2020, " + props.copyrightHolder, 64, 48);
@@ -82,6 +106,7 @@ export default function BootScreenCanvas(props) {
 		props.bootloaderTiming,
 		props.bootloaderName,
 		props.copyrightHolder,
+		symbols,
 	]);
 
 	const downloadPNG = () => {

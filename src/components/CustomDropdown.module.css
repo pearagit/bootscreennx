@@ -1,0 +1,30 @@
+.element {
+	display: flex;
+	align-items: center;
+	margin: 10px;
+	background: #ff4a7e;
+	width: fit-content;
+	transition: width 2s;
+}
+
+.select {
+	cursor: pointer;
+}
+
+.select,
+.textBox {
+	width: 200px;
+	padding: 10px;
+	border: none;
+}
+
+.icon {
+	user-select: none;
+	cursor: pointer;
+	padding: 0 10px;
+	font-size: 20px;
+}
+
+.label {
+	margin: 0 10px;
+}

@@ -155,9 +155,6 @@ export default function BootScreenCanvas(props) {
 
 	return (
 		<>
-			<button onClick={downloadPNG}>Download png</button>
-			<button onClick={downloadBitmap}>Download bitmap</button>
-			<br></br>
 			<canvas
 				style={{ width: "100%", imageRendering: "pixelated" }}
 				ref={scaledCanvas}
@@ -171,6 +168,8 @@ export default function BootScreenCanvas(props) {
 				width={CANVAS_WIDTH}
 				height={CANVAS_HEIGHT}
 			/>
+			<button onClick={downloadPNG}>Download png</button>
+			<button onClick={downloadBitmap}>Download bitmap</button>
 		</>
 	);
 }

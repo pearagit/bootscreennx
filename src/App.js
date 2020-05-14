@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import styles from "./App.module.css";
 import useCustomHook from "./hooks/CustomHook";
 import CustomDropdown from "./components/CustomDropdown";
 import BootScreenCanvas from "./components/BootScreenCanvas";
@@ -25,7 +25,13 @@ function App() {
 	);
 
 	return (
-		<>
+		<div className={styles.container}>
+			<div className={styles.header}>
+				<h1 className={styles.title}>
+					Old School Boot Screen Generator
+				</h1>
+				<h2 className={styles.subtitle}>For the Nintendo Switch</h2>
+			</div>
 			<CustomDropdown
 				customSet={setVersion}
 				deviceDataId={"version"}
@@ -83,7 +89,7 @@ function App() {
 				bootloaderTiming={bootloaderTiming}
 				bootloaderName={bootloaderName}
 			/>
-		</>
+		</div>
 	);
 }
 

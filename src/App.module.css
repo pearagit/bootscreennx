@@ -1,0 +1,19 @@
+.container {
+	padding: 5vh 10vh;
+}
+
+.header {
+	margin: 20px 0;
+}
+
+.title {
+	color: #ff4a7e;
+	font-size: 4em;
+	font-weight: 700;
+	max-width: 80%;
+}
+
+.subtitle {
+	font-size: 2em;
+	margin: 5px;
+}

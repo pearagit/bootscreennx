@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import useCustomHook from "./hooks/CustomHook";
 import CustomDropdown from "./components/CustomDropdown";
 import BootScreenCanvas from "./components/BootScreenCanvas";
+import HowToUse from "./components/HowToUse";
 
 function App() {
 	const [version, setVersion] = useCustomHook(0, "version");
@@ -92,6 +93,7 @@ function App() {
 				bootloaderTiming={bootloaderTiming}
 				bootloaderName={bootloaderName}
 			/>
+			<HowToUse />
 		</div>
 	);
 }

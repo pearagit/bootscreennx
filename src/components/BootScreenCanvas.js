@@ -89,8 +89,8 @@ export default function BootScreenCanvas(props) {
 		drawText(
 			ctx,
 			"Detecting Primary Master      ... " +
-				props.storage +
-				" Internal Storage",
+			props.storage +
+			" Internal Storage",
 			64,
 			352
 		);
@@ -106,12 +106,12 @@ export default function BootScreenCanvas(props) {
 		drawText(
 			ctx,
 			"Hold _" +
-				props.bootloaderKeybind +
-				"_ " +
-				props.bootloaderTiming +
-				" to enter _" +
-				props.bootloaderName +
-				"_.",
+			props.bootloaderKeybind +
+			"_ " +
+			props.bootloaderTiming +
+			" to enter _" +
+			props.bootloaderName +
+			"_.",
 			16,
 			CANVAS_HEIGHT - 40
 		);
@@ -154,12 +154,13 @@ export default function BootScreenCanvas(props) {
 	};
 
 	return (
-		<>
+		<div className={styles.container}>
 			<canvas
 				style={{ width: "100%", imageRendering: "pixelated" }}
 				ref={scaledCanvas}
 				width={CANVAS_WIDTH}
 				height={CANVAS_HEIGHT}
+				className={styles.canvas}
 			/>
 			<canvas
 				className={styles}
@@ -168,8 +169,10 @@ export default function BootScreenCanvas(props) {
 				width={CANVAS_WIDTH}
 				height={CANVAS_HEIGHT}
 			/>
-			<button onClick={downloadPNG}>Download png</button>
-			<button onClick={downloadBitmap}>Download bitmap</button>
-		</>
+			<div className={styles.actions}>
+				<button onClick={downloadPNG}>Download png</button>
+				<button onClick={downloadBitmap} className="primary">Download bitmap</button>
+			</div>
+		</div>
 	);
 }

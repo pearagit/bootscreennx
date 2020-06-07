@@ -49,6 +49,7 @@
 		"Atmosphere"
 	],
 	"firmware": ["Atmosphere", "ReiNX", "SX OS"],
+	"copyright_holder": ["Team ReSwitched", "Rei", "Team Xecuter"],
 	"bootloader_keybind": [
 		"VOL DOWN",
 		"VOL UP",

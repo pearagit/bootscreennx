@@ -6,7 +6,7 @@ import styles from "./CustomDropdown.module.css";
 import DeviceData from "../device_data.json";
 
 export default function CustomDropdown(props) {
-	const checkbox = React.useRef();
+	// const checkbox = React.useRef();
 	const [customInput, setCustomInput] = React.useState(false);
 
 	const onCheckboxChange = (e) => {
@@ -34,11 +34,11 @@ export default function CustomDropdown(props) {
 							className={styles.icon}
 						/>
 					) : (
-						<MdEdit
-							onClick={onCheckboxChange}
-							className={styles.icon}
-						/>
-					))}
+							<MdEdit
+								onClick={onCheckboxChange}
+								className={styles.icon}
+							/>
+						))}
 				{customInput && !props.disableCustom ? (
 					<input
 						id={props.deviceDataId}
@@ -47,18 +47,18 @@ export default function CustomDropdown(props) {
 						className={styles.textBox}
 					/>
 				) : (
-					<select
-						id={props.deviceDataId}
-						onChange={onValueChange}
-						className={styles.select}
-					>
-						{DeviceData[props.deviceDataId].map((el, index) => (
-							<option key={index} value={el}>
-								{el}
-							</option>
-						))}
-					</select>
-				)}
+						<select
+							id={props.deviceDataId}
+							onChange={onValueChange}
+							className={styles.select}
+						>
+							{DeviceData[props.deviceDataId].map((el, index) => (
+								<option key={index} value={el}>
+									{el}
+								</option>
+							))}
+						</select>
+					)}
 			</form>
 		</>
 	);

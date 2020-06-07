@@ -1,27 +1,31 @@
 .element {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	margin: 10px;
-	background: #ff4a7e;
+	padding: 5px;
+	color: #111;
 	width: fit-content;
 	transition: width 2s;
+	border-radius: 5px;
+	box-shadow: 0 5px 5px #aaa;
 }
 
 .select {
 	cursor: pointer;
+	background: none;
 }
 
 .select,
 .textBox {
-	width: 200px;
 	padding: 10px;
+	width: 200px;
 	border: none;
 }
 
 .icon {
 	user-select: none;
 	cursor: pointer;
-	padding: 0 10px;
+	/* padding: 0 10px; */
 	font-size: 20px;
 }
 

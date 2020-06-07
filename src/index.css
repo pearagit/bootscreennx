@@ -1,7 +1,9 @@
 @import url("https://rsms.me/inter/inter.css");
+
 * {
 	font-family: "Inter", sans-serif;
 }
+
 @supports (font-variation-settings: normal) {
 	* {
 		font-family: "Inter var", sans-serif;
@@ -13,6 +15,6 @@ body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background: #0e1112;
+	/* background: #0e1112; */
 	color: #ddd;
 }

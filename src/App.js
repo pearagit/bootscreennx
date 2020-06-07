@@ -10,7 +10,10 @@ function App() {
 	const [sdSize, setSdSize] = useCustomHook(3, "sd_size");
 	const [sideLogo, setSideLogo] = useCustomHook(1, "side_logo");
 	const [firmware, setFirmware] = useCustomHook(0, "firmware");
-	const [copyrightHolder, setCopyrightHolder] = React.useState("");
+	const [copyrightHolder, setCopyrightHolder] = useCustomHook(
+		0,
+		"copyright_holder"
+	)
 	const [bootloaderKeybind, setBootloaderKeybind] = useCustomHook(
 		0,
 		"bootloader_keybind"
@@ -58,11 +61,11 @@ function App() {
 				deviceDataId={"firmware"}
 				label={"Firmware"}
 			/>
-			<input
-				type="text"
-				value={copyrightHolder}
-				onChange={(e) => setCopyrightHolder(e.target.value)}
-			></input>
+			<CustomDropdown
+				customSet={setCopyrightHolder}
+				deviceDataId={"copyright_holder"}
+				label={"Copyright Holder"}
+			/>
 			<CustomDropdown
 				customSet={setBootloaderKeybind}
 				deviceDataId={"bootloader_keybind"}

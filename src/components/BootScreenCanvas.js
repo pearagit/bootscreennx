@@ -50,7 +50,7 @@ export default function BootScreenCanvas(props) {
 		context.current.imageSmoothingEnabled = false;
 		scaledContext.current.imageSmoothingEnabled = false;
 		let img = new Image();
-		img.src = "/symbols.png";
+		img.src = process.env.PUBLIC_URL + "/symbols.png";
 		img.onload = () => setSymbols(img);
 	}, []);
 
@@ -147,7 +147,7 @@ export default function BootScreenCanvas(props) {
 				const download = document.createElement("a");
 				image.getBase64Async("image/bmp").then((a) => {
 					download.href = a;
-					download.download = "bootlogo2.png";
+					download.download = "bootlogo.bmp";
 					download.click();
 				});
 			});

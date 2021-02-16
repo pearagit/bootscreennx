@@ -80,7 +80,7 @@ export default function BootScreenCanvas(props) {
 		}
 
 		drawText(ctx, props.firmware, 64, 16);
-		drawText(ctx, "Copyright (C) 2020, " + props.copyrightHolder, 64, 48);
+		drawText(ctx, "Copyright (C) 2021, " + props.copyrightHolder, 64, 48);
 
 		drawText(ctx, `Nintendo Switch (ver ${props.version})`, 32, 160);
 		drawText(ctx, "Main Processor    :   Nvidia Tegra X1 SoC", 32, 224);

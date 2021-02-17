@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/bootscreennx/precache-manifest.f95a1ab381476ca38ee592b0d4ace249.js"
+  "/bootscreennx/precache-manifest.7f199c6531b0796ffd03796abf605848.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/bootscreennx/static/css/main.1661d9ac.chunk.css",
-    "main.js": "/bootscreennx/static/js/main.1de2db64.chunk.js",
-    "main.js.map": "/bootscreennx/static/js/main.1de2db64.chunk.js.map",
+    "main.js": "/bootscreennx/static/js/main.c9aa7477.chunk.js",
+    "main.js.map": "/bootscreennx/static/js/main.c9aa7477.chunk.js.map",
     "runtime-main.js": "/bootscreennx/static/js/runtime-main.d1e65ec7.js",
     "runtime-main.js.map": "/bootscreennx/static/js/runtime-main.d1e65ec7.js.map",
     "static/js/2.0a6bb398.chunk.js": "/bootscreennx/static/js/2.0a6bb398.chunk.js",
     "static/js/2.0a6bb398.chunk.js.map": "/bootscreennx/static/js/2.0a6bb398.chunk.js.map",
     "index.html": "/bootscreennx/index.html",
-    "precache-manifest.f95a1ab381476ca38ee592b0d4ace249.js": "/bootscreennx/precache-manifest.f95a1ab381476ca38ee592b0d4ace249.js",
+    "precache-manifest.7f199c6531b0796ffd03796abf605848.js": "/bootscreennx/precache-manifest.7f199c6531b0796ffd03796abf605848.js",
     "service-worker.js": "/bootscreennx/service-worker.js",
     "static/css/main.1661d9ac.chunk.css.map": "/bootscreennx/static/css/main.1661d9ac.chunk.css.map",
     "static/js/2.0a6bb398.chunk.js.LICENSE.txt": "/bootscreennx/static/js/2.0a6bb398.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.d1e65ec7.js",
     "static/js/2.0a6bb398.chunk.js",
     "static/css/main.1661d9ac.chunk.css",
-    "static/js/main.1de2db64.chunk.js"
+    "static/js/main.c9aa7477.chunk.js"
   ]
 }
